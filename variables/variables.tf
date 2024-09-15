@@ -1,10 +1,17 @@
+# 1.command line
+# 2. terraform.tfvars
+# 3.environment variables export TF_VAR_instance_type=t3.large
+# 4. default
+# 5.prompt
+
+
 variable "ami_id"{
     type=string
     default="ami-09c813fb71547fc4f"
 }
 variable "instance_type" {
     type=string
-    default=t3.micros
+    # default="t3.micro"
 
 }
 variable "tag_names"{
