@@ -2,9 +2,12 @@ resource "aws_instance" "count"{
     count=length(var.tags_names)
     ami="ami-09c813fb71547fc4f"
     instance_type="t3.micro"
-    tags={
+    tags= merge(var.common-tags,
+    {
         Name=var.tags_names[count.index]
-    }
+        modules=var.tags_names[count.index]
+        
+    })
 }
 resource "aws_security_group" "sg-terraform"{
     name="terraform"
