@@ -1,10 +1,6 @@
-variable "tags_names"{
-    type=list(string)
-    default=["backend", "mysql", "frontend"]
-}
  variable "envitonment" {
     type=string
-    default="prod"
+    default="dev"
    
  }
  variable "instance_type" {

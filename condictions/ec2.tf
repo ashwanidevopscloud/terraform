@@ -1,9 +1,9 @@
-resource "aws_instance" "count"{
-    count=length(var.tags_names)
+resource "aws_instance" "allow"{
+   
     ami="ami-09c813fb71547fc4f"
     instance_type=var.envitonment=="prod"? "t3.large":var.instance_type
     tags={
-        Name=var.tags_names[count.index]
+        Name="terraform"
     }
 }
 resource "aws_security_group" "sg-terraform"{
