@@ -1,9 +1,10 @@
-resource "aws_instance" "terraform"{
+resource "aws_instance" "expense"{
+    count=length(var.tags_names)
     ami="ami-09c813fb71547fc4f"
     instance_type="t3.micro"
     vpc_security_group_ids = [aws_security_group.sg-terraform.id]
     tags={
-        Name="Terraform"
+        Name=var.tags_names[count.index]
     }
 }
 resource "aws_security_group" "sg-terraform" {
